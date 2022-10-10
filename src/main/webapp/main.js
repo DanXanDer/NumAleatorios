@@ -6,23 +6,30 @@ let parameterMInputMixto = document.querySelector(".parameterMixto");
 let semillaInputMulti = document.querySelector(".semillaMulti");
 let parameterAInputMulti = document.querySelector(".parameterAMulti");
 let parameterMInputMulti = document.querySelector(".parameterMulti");
+let parameterminimo=document.querySelector(".minimo");
+let parametermaximo=document.querySelector(".maximo");
+
 let subtotal;
 let residuo;
 let numAleatorio;
 let x;
+
 const calcularMixto = document.querySelector("#calcular-mixto");
 const calcularMulti = document.querySelector("#calcular-multi");
+const calcularAleatorio=document.querySelector("#calcular-aleatorio");
 let formulaMixto = document.querySelector(".formula-mixto");
 let formulaMulti = document.querySelector(".formula-multi");
 let loginBoxMixto = document.querySelector("#login-boxMixto");
 let loginBoxMulti = document.querySelector("#login-boxMulti");
 const tableMulti = document.querySelector("#table-multi");
 const tableMixto = document.querySelector("#table-mixto");
+
 const buttonMulti = document.querySelector(".button-multi");
 const buttonMixto = document.querySelector(".button-mixto");
 const containerMulti = document.querySelector(".container-multi");
 const containerMixto = document.querySelector(".container-mixto");
 const numAleatorioArray = [];
+
 
 function createRowTitles(cTitle) {
     const filaTitle = document.createElement("tr");
@@ -117,6 +124,23 @@ function createRows(semilla, i, a, c, m, cIter) {
         tableMulti.append(fila)
     }
 }
+
+function generarAleatorio(){
+    var min=parseInt(parameterminimo.value);
+    var max=parseInt(parametermaximo.value);
+    //Generar un número entero dentro de un rango
+    var x=Math.floor(Math.random()*(max-min+1)+min);
+    //Generar un número dentro de un rango
+    //Math.random()*(max - min)+min;
+    console.log(x);
+    console.log(min);
+    console.log(max);
+    
+    document.getElementById("result").innerHTML = "Número aleatorio generado: " + x;
+}
+calcularAleatorio.addEventListener("click",generarAleatorio);
+
+
 
 calcularMixto.addEventListener("click", generarAleatorioMixto);
 
